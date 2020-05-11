@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Github</h1>
+        <button onclick="recuperar()"> Recuperar dados</button>
+        <br>
+    </div>
+    <script>
+        function recuperar(){
+            var elApp = document.getElementById("app");
+            
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.github.com/users/lucasplucena");
+            xhr.send(null);
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState === 4){
+                    var res = JSON.parse(xhr.responseText);
+
+                    var nome = res.name;
+                    var foto = res.avatar_url;
+                    var followers = res.followers;
+                    var following = res.following;
+
+                    var elAvatar = document.createElement("img");
+                    elAvatar.setAttribute("width", "128");
+                    elAvatar.setAttribute("src", foto);
+
+                    var elNome = document.createElement("h3");
+                    elNome.innerText = nome;
+
+                    var elFollowers = document.createElement("p");
+                    elFollowers.innerText = "Followers: "+ followers;
+
+                    var elFollowing = document.createElement("p");
+                    elFollowing.innerText = "Following: "+ following;
+
+                    elApp.appendChild(elNome)
+                    elApp.appendChild(elAvatar);
+                    elApp.appendChild(elFollowers);
+                    elApp.appendChild(elFollowing);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
