@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Convidados</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Lista de convidados</h1>
+            <h2>Convidados</h2>
+            <ul id="lista"><!--Significa lista não ordenada-->
+            </ul>
+            <input id="campo" type="text" placeholder="Digite o nome" />
+            <button id="botao">Cadastrar</button>
+        </div>
+        <script type="text/javascript">
+            var convidados = JSON.parse(localStorage.getItem("convidados"))||[];
+            var lista = document.getElementById("lista");
+            var botao = document.getElementById("botao");
+            var campo = document.getElementById("campo");
+
+            function listar(){
+            lista.innerHTML="";//limpeza pré listar
+            for (const convidado of convidados){
+                var elConvidado = document.createElement('li');
+                var elNome = document.createTextNode(convidado.nome);
+                var deletar = document.createElement("a");
+
+                deletar.setAttribute("href", "#");
+                var textoDeletar = document.createTextNode("Excluir");
+
+                deletar.onclick = function(){
+                    convidados = convidados.filter(function(item){
+                        return item.id !== convidado.id;
+                    });
+                    salvar();
+                    listar();
+                    
+                };
+                deletar.appendChild(textoDeletar);
+                elConvidado.appendChild(elNome);
+                elConvidado.appendChild(deletar);
+                lista.appendChild(elConvidado);
+                campo.value="";//esvazia o campo
+            }
+            }
+
+            listar();
+
+            function salvar(){
+                localStorage.setItem("convidados", JSON.stringify(convidados));
+            }
+
+            var addConvidado = function (){
+                var pessoa = {id: Number(convidados.length+1), nome: campo.value+" ", 
+                idade: Math.floor(Math.random()*100)+1};
+                convidados.push(pessoa);
+                listar();
+                salvar();
+            }
+
+            botao.onclick = addConvidado;
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<script>
+    var convidados = [];
+    var confirma;
+    alert("Bem vindo à sua lista de convidados!");
+    while(true){
+    convidados.push({nome:prompt("Digite o nome:"),idade:prompt("Digite a idade:"),cpf:prompt("Digite a cpf:")});
+    confirma = prompt("Deseja inserir mais algum contato?\nS-Sim\tN-Não")
+    if(confirma=="N")
+    break;
+    }
+    var resultado = [];
+    function busca(){
+        var pesquisa = prompt("Que dado você deseja pesquisar?");
+        var dado = prompt("Insira o "+pesquisa);
+        switch(pesquisa){
+            case('Nome'||'nome'):
+            {
+                for(i=0;i<convidados.length;i++){
+                    if(convidados[i].nome==dado){
+                        resultado.push(convidados[i]);
+                    }
+                }
+            }
+            case('Idade'||'idade'):
+            {
+                for(i=0;i<convidados.length;i++){
+                    if(convidados[i].idade==dado){
+                        resultado.push(convidados[i]);
+                    }
+                }
+            }
+            case('CPF'||'cpf'||'Cpf'):
+            {
+                for(i=0;i<convidados.length;i++){
+                    if(convidados[i].cpf==dado){
+                        resultado.push(convidados[i]);
+                    }
+                }
+            }
+    }
+}
+</script>

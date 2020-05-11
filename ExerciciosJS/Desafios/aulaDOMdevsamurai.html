@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <!--Conteúdo-->
+        <!--<h1 id="titulo" class="titulo">Testando</h1>--id só existe 1-->
+        <!--<h2 class="titulo">Segundo teste</h2>-->
+        <button onclick="botao()">Botão teste</button>
+        <input id="campo" onkeypress="digitado()"/>
+        <script>
+        
+        function botao(){
+            alert("Oi");
+        }
+
+        function digitado(){
+            var writen = document.getElementById("campo").value;
+            console.log(writen);
+        }
+
+        /*código
+        var obj = document.getElementById('titulo');
+        var obj2 = document.getElementsByClassName('titulo');
+        nome da classe retorna array
+        innerText chama o conteúdo*/
+        </script>
+    </body>
+</html>

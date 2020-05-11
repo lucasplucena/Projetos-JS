@@ -1,0 +1,62 @@
+<script>
+var pessoas = [
+    {nome: "Lucas", idade: 25, sexo: "M"},
+    {nome: "Géssyka", idade: 29, sexo: "F"},
+    {nome: "Dudu", idade: 8, sexo: "M"},
+    {nome: "Tereza", idade: 59, sexo: "F"},
+    {nome: "João", idade: 11, sexo: "M"}
+];//input de dados
+
+var ordena = pessoas.sort(function(a,b){
+    return (a.nome>b.nome) ?1: ((b.nome>a.nome) ?-1: 0);
+});
+
+
+Array.prototype.groupBy = function(prop) {/*inserção de um método no pai, através do
+    prototype (que pode inserir métodos ou propriedades) modificando-o, 
+    já viu isso antes? :D*/
+    var value = this.reduce(function(total, item) {
+        var key = item[prop];//key var que recebe > item[prop] vai chamar a propriedade
+        total[key] = (total[key] || []).concat(item);/*montagem de array de objetos da
+        propriedade escolhida, o (total[key] || []) funcionará criando o array (se não
+        houver objetos) ou inserindo um objeto no array, nesse caso o concat vai 
+        funcionar como um push*/
+        return total;//retorno do array;
+        }, {});//objeto como parâmetro da função groupBy
+    return value;
+}
+
+var podentrar = ordena.filter(function(item){
+    return item.idade>18;//chamada e definição de parâmetros para retorno
+}).groupBy('sexo');//chamada de groupBy, definindo sexo como parâmetro de agrupamento
+
+/*
+A groupBy poderia ser usada dessa forma:
+function groupBy(array, prop) {
+    var value = array.reduce(function(total, item) {
+    var key = item[prop];
+    total[key] = (total[key] || []).concat(item);
+    return total;
+    }, {});
+return value;
+};
+var agrupados = groupBy(array, 'prop');
+console.log(agrupados);
+Mas assim não poderia ser colocado direto na função filter
+
+--/ Parte escrita por mim pra garantir que eu decorei :D
+
+Array.prototype.groupBy = function(prop){
+    var value = this.reduce(function(total, item){
+        var key = item[prop];
+        total[key]=(total[key]||[]).concat(item);
+        return total;
+    }, {});
+    return value;
+}
+
+var ordena = pessoas.sort(function(a,b){
+    return a.nome>b.nome ?1: ((b.nome>a.nome) ?-1: 0);
+});*/
+
+</script>

@@ -1,0 +1,21 @@
+<script>
+var num=[];
+function media(){
+    var a=0;
+    var resposta;
+    while(true){
+    num.push(Number(prompt("Escreva aqui o valor de número "+(a+1))));
+    resposta=prompt("Deseja inserir mais algum número?\nS-Sim\tN-Não");
+    a++;
+    if(resposta=='N')
+    break;
+    }
+    a=0;
+    for(x=0;x<num.length;x++){
+        a+=num[x];
+    }
+    a/=num.length;
+    alert("Sua média é "+a);
+}
+media();
+</script>
