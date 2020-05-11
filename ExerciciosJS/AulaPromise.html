@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.github.com/users/lucasplucena");
+        xhr.send(null);
+
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState===4){
+                if(xhr.status===200){
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
