@@ -10,8 +10,8 @@ var usuarios = [
 ];
 
 function frase(objeto){
-for(var a=0;a<objeto.length;a++){
-    console.log(`O ${objeto[a].nome} possui: `+ objeto[a].habilidades.join());
+for(let item of objeto){
+    console.log(`O ${item.nome} possui: `+ item.habilidades.join());
 };
 };
 
