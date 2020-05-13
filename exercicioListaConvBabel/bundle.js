@@ -46,8 +46,9 @@ document.getElementById("novoConvidado").onclick = function () {
   listaCon.adicionar(nome, idade, cpf);
 };
 
-function limparCampos() {
+var limparCampos = function limparCampos() {
+  //uso de arrow function
   document.getElementById("nomePessoa").value = "";
   document.getElementById("cpfEntrada").value = "";
   document.getElementById("idadePessoa").value = "";
-}
+};
