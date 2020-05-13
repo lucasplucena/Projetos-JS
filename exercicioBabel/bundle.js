@@ -6,22 +6,48 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var teste = /*#__PURE__*/function () {
-  function teste() {
-    _classCallCheck(this, teste);
+var listadeConv = /*#__PURE__*/function () {
+  function listadeConv() {
+    _classCallCheck(this, listadeConv);
+
+    this.convidados = [];
   }
 
-  _createClass(teste, [{
-    key: "digaOla",
-    value: function digaOla() {
-      alert("Olá");
+  _createClass(listadeConv, [{
+    key: "adicionar",
+    value: function adicionar(nome, idade, cpf) {
+      this.convidados.push({
+        nome: nome,
+        idade: idade,
+        cpf: cpf
+      });
+      limparCampos();
     }
   }, {
-    key: "digaOi",
-    value: function digaOi() {
-      alert("oi");
+    key: "listar",
+    value: function listar() {
+      console.log(this.convidados);
     }
   }]);
 
-  return teste;
+  return listadeConv;
 }();
+
+var listaCon = new listadeConv();
+
+document.getElementById("listarConvs").onclick = function () {
+  listaCon.listar();
+};
+
+document.getElementById("novoConvidado").onclick = function () {
+  var nome = document.getElementById("nomePessoa").value;
+  var cpf = document.getElementById("cpfEntrada").value;
+  var idade = document.getElementById("idadePessoa").value;
+  listaCon.adicionar(nome, idade, cpf);
+};
+
+function limparCampos() {
+  document.getElementById("nomePessoa").value = "";
+  document.getElementById("cpfEntrada").value = "";
+  document.getElementById("idadePessoa").value = "";
+}
