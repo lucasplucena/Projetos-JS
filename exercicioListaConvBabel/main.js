@@ -31,3 +31,4 @@ var limparCampos = () =>{//uso de arrow function
     document.getElementById("cpfEntrada").value = "";
     document.getElementById("idadePessoa").value = "";
 }
+
