@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula01DOM</title>
+</head>
+<body>
+    <div id="app">
+    <!--<button id="botao">Botão</button>
+    <input type="text" id="campo"/>
+    -->
+    <div class="box" id="box"></div>
+    </div>
+
+    <script>
+        var boxElement = document.querySelector('.box');
+        boxElement.style.width = 150;
+        boxElement.style.height = 150;
+        boxElement.style.backgroundColor = '#f00';
+        
+        /* 
+        Criando elementos no body diretamente por JS
+        var linkElement = document.createElement("a");
+        linkElement.setAttribute("href", "https://github.com/lucasplucena")
+        var textElement = document.createTextNode("Acessar Github de Lucas");
+        linkElement.appendChild(textElement);
+        var containElement = document.getElementById("app");
+        containElement.appendChild(linkElement); */
+
+        /*
+        Setando funções de botão
+        var btnElement=document.getElementById("botao");
+        var cmpElement=document.getElementById("campo");
+        btnElement.onclick = function(){
+            var texto = cmpElement.value;
+            alert(texto);
+            cmpElement.value="";
+        } */
+    </script>
+</body>
+</html>
