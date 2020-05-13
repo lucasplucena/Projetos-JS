@@ -1,2 +1,2 @@
 # Projetos-JS
-Meus projetos em JavaScript
+Meus projetos e exercícios em JavaScript
