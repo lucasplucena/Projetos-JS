@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q02</title>
+</head>
+<body>
+    <button id="quad">New square</button>
+    <div id="box"></div>
+    <script>
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+            return color;
+            }
+        var nq = document.querySelector('button[id=quad]');//passando botão para nq
+        nq.onclick = function(){//ativação de nq com clique
+            var quadElement = document.createElement("img");
+            quadElement.style.width = 100;
+            quadElement.style.height = 100;
+            quadElement.style.backgroundColor = getRandomColor();
+            var square = document.body.appendChild(quadElement);
+            square.addEventListener('click', () => {//clique para mudar de cor
+                square.style.backgroundColor = getRandomColor();
+            });
+        }
+    </script>
+</body>
+</html>

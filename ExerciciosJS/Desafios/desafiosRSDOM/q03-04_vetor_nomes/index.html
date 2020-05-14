@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q03-Q04</title>
+</head>
+<body>
+    <input placeholder="Nome: " type="text" id="campo"/>
+    <button id="botao">Adicionar</button>
+    <ul id="lista"></ul>
+    <script>
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        var nome = document.getElementById("campo");
+        var botao = document.getElementById("botao");
+        botao.onclick = function(){
+            nomes.push(nome.value);
+            document.getElementById("campo").value = "";
+            listar();
+        }
+
+        function listar(){
+            var pessoas = document.getElementById("lista");
+            pessoas.innerHTML='';
+        for(const item of nomes){
+           var elNome = document.createTextNode(item);
+           var ponto = document.createElement('li');
+           ponto.appendChild(elNome);
+           pessoas.appendChild(ponto);
+        }
+        }
+    </script>
+</body>
+</html>

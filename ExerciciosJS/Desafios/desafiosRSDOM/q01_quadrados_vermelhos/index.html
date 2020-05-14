@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q01</title>
+</head>
+<body>
+    <button id="quad">New square</button>
+    <div id="box"></div>
+    <script>
+        
+        var nq = document.querySelector('button[id=quad]');//passando botão para nq
+        nq.onclick = function(){//ativação de nq com clique
+            var quadElement = document.createElement("img");
+            quadElement.style.width = 100;
+            quadElement.style.height = 100;
+            quadElement.style.backgroundColor = '#f00'
+            document.body.appendChild(quadElement);
+        }
+    </script>
+</body>
+</html>
